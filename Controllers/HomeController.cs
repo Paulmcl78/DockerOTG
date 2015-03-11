@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Mvc;
 using MvcSample.Web.Models;
 
-using Apache.Nms;
+using Apache.NMS;
 using Apache.NMS.ActiveMQ.Commands;
 using Apache.NMS.Util;
 
