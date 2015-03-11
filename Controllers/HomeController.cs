@@ -58,24 +58,29 @@ namespace MvcSample.Web
 			}
 		}
 		
-		var multiPlexer = RedisFactory.GetInstance();
-
-		IDatabase db = multiPlexer.GetDatabase();
-
-		string value = db.StringGet("UserKey");
-
-		var user = new User();
+		var user = User();
 		
-		if (string.IsNullOrWhiteSpace(value))
+		var clientManager = new BasicRedisClientManager("ec2-52-11-220-172.us-west-2.compute.amazonaws.com:6379");
+
+		using (var redisClient = clientManager.GetClient())
 		{
-			db.StringSet("UserKey", "AK");
-		}
-		else
-		{
-			user = new User();
-		}
+			var userName = redisClient.Get<string>("UserKey");
+
+			if (string.IsNullOrEmpty(userName))
+			{
+				bool result = redisClient.Set("UserKey", "AK");
+			}
+			else
+			{
+				user = User(userName);
+			}
+
+			long browseCount = redisClient.Increment("Browse Count", 1);
+				
+			ViewBag.BrowseCount = browseCount;
 		
-	    return View(user);
+			return View(user);
+		}
 	}
 
 
