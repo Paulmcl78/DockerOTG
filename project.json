@@ -4,7 +4,9 @@
         "Microsoft.AspNet.Diagnostics": "1.0.0-beta1",
         "Microsoft.AspNet.Hosting": "1.0.0-beta1",
         "Microsoft.AspNet.Mvc": "6.0.0-beta1",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta1"
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta1",
+		"Apache.NMS": "1.6.0.3083",
+		"Apache.NMS.ActiveMQ": "1.6.3"
     },
     "commands": {
         "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",

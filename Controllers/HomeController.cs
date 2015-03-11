@@ -24,6 +24,9 @@ namespace MvcSample.Web
 	[Route("test")]
 	public IActionResult Hometest()
 	{
+		
+		
+		
 	    return View(User());
 	}
 
