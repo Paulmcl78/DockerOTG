@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
 using MvcSample.Web.Models;
-
+using System;
 using Apache.NMS;
 using Apache.NMS.ActiveMQ.Commands;
 using Apache.NMS.Util;
@@ -66,7 +66,7 @@ namespace MvcSample.Web
 
 		var user = new User();
 		
-		if (String.IsNullOrWhiteSpace(value))
+		if (string.IsNullOrWhiteSpace(value))
 		{
 			db.StringSet("UserKey", "AK");
 		}
