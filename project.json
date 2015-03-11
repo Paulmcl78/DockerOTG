@@ -3,7 +3,7 @@
         "Kestrel": "1.0.0-beta1",
         "Microsoft.AspNet.Diagnostics": "1.0.0-beta1",
         "Microsoft.AspNet.Hosting": "1.0.0-beta1",
-        "Microsoft.AspNet.Mvc": "6.0.0-beta1",
+        "Microsoft.AspNet.Mvc": "5.2.2",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta1",
 		"Antlr":"3.4.1.9004",
 		"bootstrap":"3.0.0",
