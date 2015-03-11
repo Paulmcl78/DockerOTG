@@ -1,5 +1,5 @@
 ﻿{
-    //"webroot": "wwwroot",
+   // "webroot": "wwwroot",
     "version": "1.0.0-*",
     "dependencies": {
         //"Microsoft.AspNet.Server.IIS": "1.0.0-beta3",
@@ -8,7 +8,7 @@
         "Microsoft.AspNet.Server.WebListener": "1.0.0.0-beta1",
         "Microsoft.AspNet.Diagnostics": "1.0.0.0-beta1",
         "Microsoft.AspNet.Hosting": "1.0.0.0-beta1"
-       /*"Apache.NMS": "1.6.0.3083",
+        /*"Apache.NMS": "1.6.0.3083"
         "Apache.NMS.ActiveMQ": "1.6.3.0",
         "ServiceStack.Redis": "4.0.38.0"*/
     },

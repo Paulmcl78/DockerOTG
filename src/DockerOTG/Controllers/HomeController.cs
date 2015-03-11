@@ -24,7 +24,6 @@ namespace DockerOTG.Controllers
             return View();
         }
 
-        [HttpPost]
         [Route("Home/Login")]
         public IActionResult Login(LoginViewModel model)
         {
