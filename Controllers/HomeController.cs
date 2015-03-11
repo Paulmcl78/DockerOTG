@@ -4,6 +4,7 @@ using MvcSample.Web.Models;
 using Apache.NMS;
 using Apache.NMS.ActiveMQ.Commands;
 using Apache.NMS.Util;
+using StackExchange.Redis;
 
 namespace MvcSample.Web
 {
@@ -19,6 +20,17 @@ namespace MvcSample.Web
             User user = new User()
             {
                 Name = "Team 31",
+                Address = "NaviNet"
+            };
+
+            return user;
+        }
+		
+		public User User(string username)
+        {
+            User user = new User(username)
+            {
+                Name = username,
                 Address = "NaviNet"
             };
 
@@ -46,10 +58,49 @@ namespace MvcSample.Web
 			}
 		}
 		
+		var multiPlexer = RedisFactory.GetInstance();
+
+		IDatabase db = multiPlexer.GetDatabase();
+
+		string value = db.StringGet("UserKey");
+
+		var user = new User();
 		
-	    return View(User());
+		if (String.IsNullOrWhiteSpace(value))
+		{
+			db.StringSet("UserKey", "AK");
+		}
+		else
+		{
+			user = new User(value);
+		}
+		
+	    return View(user);
 	}
 
 
+    }
+	
+	public static class RedisFactory
+    {
+        private static ConnectionMultiplexer multiplexer;
+        private static object lockObj;
+
+        public static ConnectionMultiplexer GetInstance()
+        {
+            if (multiplexer == null)
+            {
+                lock (lockObj)
+                {
+                    if (multiplexer == null)
+                    {
+                        multiplexer =
+                            ConnectionMultiplexer.Connect("ec2-52-11-220-172.us-west-2.compute.amazonaws.com:6379");
+                    }
+                }
+            }
+
+            return multiplexer;
+        }
     }
 }
