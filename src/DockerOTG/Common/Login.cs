@@ -35,10 +35,10 @@ namespace DockerOTG.Common
 
         private void raiseLoginEvent(string name, bool success)
         {
-            string message = string.Format("{1} has failed to login",name);
+            string messageinfo = string.Format("{1} has failed to login",name);
             if(success)
             {
-                message = string.Format("{1} has successfully logged in", name);
+                messageinfo = string.Format("{1} has successfully logged in", name);
             }
 
             var connectionFactory = new NMSConnectionFactory("tcp://ec2-52-11-191-106.us-west-2.compute.amazonaws.com:61616");
@@ -52,7 +52,7 @@ namespace DockerOTG.Common
                     using(var producer =  session.CreateProducer(SessionUtil.GetQueue(session,"Login.Event.Q")))
                     {
                         var message = new ActiveMQBytesMessage();
-                        message.Content = System.Text.Encoding.ASCII.GetBytes(message);
+                        message.Content = System.Text.Encoding.ASCII.GetBytes(messageinfo);
 
                         producer.Send(message);
                     }
