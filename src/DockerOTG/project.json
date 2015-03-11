@@ -1,0 +1,37 @@
+﻿{
+   // "webroot": "wwwroot",
+    "version": "1.0.0-*",
+    "dependencies": {
+        //"Microsoft.AspNet.Server.IIS": "1.0.0-beta3",
+        "Kestrel": "1.0.0.0-beta1",
+        "Microsoft.AspNet.Mvc": "6.0.0.0-beta1",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0.0-beta1",
+        "Microsoft.AspNet.Diagnostics": "1.0.0.0-beta1",
+        "Microsoft.AspNet.Hosting": "1.0.0.0-beta1",
+        "Apache.NMS": "1.6.0.3083",
+        "Apache.NMS.ActiveMQ": "1.6.3.0",
+        "ServiceStack.Redis": "4.0.38.0"
+    },
+    "frameworks": {
+        "aspnet50": { },
+        "aspnetcore50": { }
+    },
+
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5002",
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+    },
+
+    "bundleExclude": [
+        "node_modules",
+        "bower_components",
+        "**.kproj",
+        "**.user",
+        "**.vspscc"
+    ],
+    "exclude": [
+        "wwwroot",
+        "node_modules",
+        "bower_components"
+    ]
+}
