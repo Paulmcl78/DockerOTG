@@ -7,8 +7,15 @@ namespace DockerOTG.Controllers
     public class HomeController : Controller
     {
         // GET: /<controller>/
+
         [Route("/")]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("test")]
+        public IActionResult Hometest()
         {
             return View();
         }
