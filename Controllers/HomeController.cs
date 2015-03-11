@@ -84,7 +84,7 @@ namespace MvcSample.Web
 	public static class RedisFactory
     {
         private static ConnectionMultiplexer multiplexer;
-        private static object lockObj;
+        private static object lockObj = new object();
 
         public static ConnectionMultiplexer GetInstance()
         {
