@@ -72,7 +72,7 @@ namespace MvcSample.Web
 		}
 		else
 		{
-			user = new User(value);
+			user = new User();
 		}
 		
 	    return View(user);
