@@ -4,7 +4,7 @@ using System;
 using Apache.NMS;
 using Apache.NMS.ActiveMQ.Commands;
 using Apache.NMS.Util;
-using StackExchange.Redis;
+using ServiceStack.Redis;
 
 namespace MvcSample.Web
 {
