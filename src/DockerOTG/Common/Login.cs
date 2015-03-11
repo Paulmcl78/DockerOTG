@@ -52,7 +52,7 @@ namespace DockerOTG.Common
                     using(var producer =  session.CreateProducer(SessionUtil.GetQueue(session,"Login.Event.Q")))
                     {
                         var message = new ActiveMQBytesMessage();
-                        message.Conent = System.Text.Encoding.ASCII.GetBytes(message);
+                        message.Content = System.Text.Encoding.ASCII.GetBytes(message);
 
                         producer.Send(message);
                     }
