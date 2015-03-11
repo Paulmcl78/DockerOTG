@@ -1,39 +1,30 @@
-﻿using Microsoft.AspNet.Mvc;
-using MvcSample.Web.Models;
-using DockerTest.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
-namespace MvcSample.Web
+namespace dockertest.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View(login());
+            return View();
         }
 
-        public User User()
+        public ActionResult About()
         {
-            User user = new User()
-            {
-                Name = "Team 31",
-                Address = "NaviNet"
-            };
+            ViewBag.Message = "Your application description page.";
 
-            return user;
+            return View();
         }
-		
-		public LoginModel login()
-		{
-			return new LoginModel();
-		
-		}
 
-	[Route("test")]
-	public IActionResult Hometest()
-	{
-	    return View();
-	}
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
 
-
+            return View();
+        }
     }
 }

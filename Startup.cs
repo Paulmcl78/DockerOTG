@@ -1,23 +1,15 @@
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Routing;
-using Microsoft.Framework.DependencyInjection;
+﻿using Microsoft.Owin;
+using Owin;
 
-namespace HelloMvc
+[assembly: OwinStartupAttribute(typeof(dockertest.Startup))]
+namespace dockertest
 {
-    public class Startup
+    public partial class Startup
     {
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseErrorPage();
+        public void Configuration(IAppBuilder app)
+        { 
 
-            app.UseServices(services =>
-            {
-                services.AddMvc();
-            });
-
-            app.UseMvc();
-
-            app.UseWelcomePage();
-        }       
+            ConfigureAuth(app);
+        }
     }
 }
