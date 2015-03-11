@@ -78,6 +78,7 @@ namespace MvcSample.Web
 			long browseCount = redisClient.Increment("Browse Count", 1);
 				
 			ViewBag.BrowseCount = browseCount;
+			ViewBag.ConfigUrl = System.Environment.GetEnvironmentVariable("ConfigStoreUrl");
 		
 			return View(user);
 		}
