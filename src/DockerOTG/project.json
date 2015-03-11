@@ -18,7 +18,8 @@
         "Microsoft.Framework.CodeGenerators.Mvc": "1.0.0-beta3",
         "Microsoft.Framework.Logging": "1.0.0-beta3",
         "Microsoft.Framework.Logging.Console": "1.0.0-beta3",
-        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3"
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
+        "Kestrel": "1.0.0.0-beta3"
     },
     "commands": {
         /* Change the port number when you are self hosting this application */
@@ -44,7 +45,7 @@
         "**.vspscc"
     ],
     "scripts": {
-        "postrestore": [ "npm install" ],
+        /*"postrestore": [ "npm install" ],*/
         "prepare": [ "grunt bower:install" ]
     }
 }
