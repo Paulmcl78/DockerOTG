@@ -28,7 +28,7 @@ namespace MvcSample.Web
 		
 		public User User(string username)
         {
-            User user = new User(username)
+            User user = new User()
             {
                 Name = username,
                 Address = "NaviNet"
