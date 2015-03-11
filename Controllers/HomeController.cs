@@ -85,27 +85,4 @@ namespace MvcSample.Web
 
 
     }
-	
-	public static class RedisFactory
-    {
-        private static ConnectionMultiplexer multiplexer;
-        private static object lockObj = new object();
-
-        public static ConnectionMultiplexer GetInstance()
-        {
-            if (multiplexer == null)
-            {
-                lock (lockObj)
-                {
-                    if (multiplexer == null)
-                    {
-                        multiplexer =
-                            ConnectionMultiplexer.Connect("ec2-52-11-220-172.us-west-2.compute.amazonaws.com:6379");
-                    }
-                }
-            }
-
-            return multiplexer;
-        }
-    }
 }
