@@ -1,4 +1,5 @@
-﻿using DockerOTG.Model;
+﻿using DockerOTG.Common;
+using DockerOTG.Model;
 using Microsoft.AspNet.Mvc;
 
 
@@ -27,12 +28,14 @@ namespace DockerOTG.Controllers
         [Route("Home/Login")]
         public IActionResult Login(LoginViewModel model)
         {
-            if(model.UserName == "test")
+            ILogin login = new Login();
+
+            if(login.LoginSuccessful(model))
             {
                 return RedirectToAction("Index", "Root");
             }
 
-            ModelState.AddModelError(string.Empty, "Incorrect username or password");
+                       ModelState.AddModelError(string.Empty, "Incorrect username or password");
 
             return View("Index");
 
