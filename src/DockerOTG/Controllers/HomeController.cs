@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using DockerOTG.Model;
+using Microsoft.AspNet.Mvc;
+
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,13 +13,30 @@ namespace DockerOTG.Controllers
         [Route("/")]
         public IActionResult Index()
         {
-            return View();
+            return View(new LoginViewModel());
         }
+
+
 
         [Route("test")]
         public IActionResult Hometest()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Route("Home/Login")]
+        public IActionResult Login(LoginViewModel model)
+        {
+            if(model.UserName == "test")
+            {
+                return RedirectToAction("Index", "Root");
+            }
+
+            ModelState.AddModelError(string.Empty, "Incorrect username or password");
+
+            return View("Index");
+
         }
     }
 }
