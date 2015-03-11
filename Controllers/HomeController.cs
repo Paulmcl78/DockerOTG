@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
 using MvcSample.Web.Models;
+using DockerTest.Models;
 
 namespace MvcSample.Web
 {
@@ -7,7 +8,7 @@ namespace MvcSample.Web
     {
         public IActionResult Index()
         {
-            return View(User());
+            return View(login());
         }
 
         public User User()
@@ -20,11 +21,17 @@ namespace MvcSample.Web
 
             return user;
         }
+		
+		public LoginModel login()
+		{
+			return new LoginModel();
+		
+		}
 
 	[Route("test")]
 	public IActionResult Hometest()
 	{
-	    return View(User());
+	    return View();
 	}
 
 
