@@ -39,7 +39,7 @@ namespace MvcSample.Web
 				using (var producer = session.CreateProducer(SessionUtil.GetQueue(session, "Login.Event.Q")))
 				{
 					var message = new ActiveMQBytesMessage();
-					message.Content = Encoding.ASCII.GetBytes("Hello, World");
+					message.Content = System.Text.Encoding.ASCII.GetBytes("Hello, World");
 
 					producer.Send(message);
 				}
