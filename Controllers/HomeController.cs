@@ -28,7 +28,7 @@ namespace MvcSample.Web
 	[Route("test")]
 	public IActionResult Hometest()
 	{
-		var connectionFactory = new NMSConnectionFactory("tcp://http://ec2-52-11-191-106.us-west-2.compute.amazonaws.com/:61616"))
+		var connectionFactory = new NMSConnectionFactory("tcp://http://ec2-52-11-191-106.us-west-2.compute.amazonaws.com/:61616");
             
 		using (var connection = connectionFactory.CreateConnection())
 		{
