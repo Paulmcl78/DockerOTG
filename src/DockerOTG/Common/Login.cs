@@ -35,10 +35,10 @@ namespace DockerOTG.Common
 
         private void raiseLoginEvent(string name, bool success)
         {
-            string messageinfo = string.Format("{1} has failed to login",name);
+            string messageinfo = string.Format("{0} has failed to login",name);
             if(success)
             {
-                messageinfo = string.Format("{1} has successfully logged in", name);
+                messageinfo = string.Format("{0} has successfully logged in", name);
             }
 
             var connectionFactory = new NMSConnectionFactory("tcp://ec2-52-11-191-106.us-west-2.compute.amazonaws.com:61616");
