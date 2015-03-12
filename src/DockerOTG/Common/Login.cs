@@ -41,7 +41,7 @@ namespace DockerOTG.Common
                 messageinfo = string.Format("{0} has successfully logged in", name);
             }
 
-            var connectionFactory = new NMSConnectionFactory("tcp://ec2-52-11-191-106.us-west-2.compute.amazonaws.com:61616");
+            var connectionFactory = new NMSConnectionFactory("tcp://ec2-52-11-220-172.us-west-2.compute.amazonaws.com:61616");
 
             using (var connection = connectionFactory.CreateConnection())
             {
